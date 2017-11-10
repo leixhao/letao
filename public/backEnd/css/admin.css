@@ -1,0 +1,103 @@
+html,
+body {
+  font-family: "微软雅黑";
+}
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+}
+.lt-laside {
+  position: absolute;
+  width: 180px;
+  height: 100%;
+  background-color: #222d32;
+}
+.lt-laside .nav {
+  width: 100%;
+  height: 50px;
+}
+.lt-laside .nav a {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: #337ab7;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+.lt-laside .manage .user {
+  width: 100%;
+  padding: 30px;
+}
+.lt-laside .manage .user img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.lt-laside .manage .user span {
+  font-size: 12px;
+  color: #fff;
+}
+.lt-laside .manage .menu {
+  width: 100%;
+  height: 40px;
+}
+.lt-laside .manage .menu li a {
+  display: block;
+  width: 100%;
+  line-height: 40px;
+  font-size: 14px;
+  color: #aaa;
+}
+.lt-laside .manage .menu li .child {
+  display: none;
+}
+.lt-laside .manage .menu li .child a {
+  display: block;
+  height: 30px;
+  padding-left: 20px;
+  line-height: 30px;
+  font-size: 12px;
+}
+.rt-laside {
+  margin-left: 180px;
+  height: 100%;
+}
+.rt-laside .nav {
+  width: 100%;
+  height: 50px;
+  padding: 0 15px;
+  background-color: #3c8dbc;
+}
+.rt-laside .nav a {
+  color: #fff;
+  font-size: 18px;
+  line-height: 50px;
+}
+.rt-laside .nav a:first-child {
+  float: left;
+}
+.rt-laside .nav a:last-child {
+  float: right;
+}
+.rt-laside .container {
+  padding: 10px 10px 0;
+  width: 100%;
+}
+.rt-laside .container .picTable {
+  width: 45%;
+  height: 400px;
+  float: left;
+}
+.rt-laside .container .picTable::last-child {
+  margin-left: 10%;
+}
+.rt-laside.menu {
+  margin-left: 0;
+}
+#myModal .modal-dialog .modal-content .modal-body {
+  color: #a94442;
+}
