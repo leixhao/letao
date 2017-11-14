@@ -10,7 +10,7 @@ $(function () {
       },
       dataType: 'json',
       success: function (data) {
-        // console.log(data);
+        console.log(data);
         var secondResult = template('second-template',data);
         $('tbody').html(secondResult);
 
@@ -29,24 +29,29 @@ $(function () {
             /*改变当前页再渲染 page当前点击的按钮的页面*/
             getSecondData(page);
           }
+
         });
-
-
-
-
-
-
 
 
       }
     })
+
+
+
   }
 
   getSecondData();
 
 
-
-
+  $('#fileupload').fileupload({
+    dataType: 'json',
+    url:'/category/addSecondCategoryPic',
+    done: function (e, data) {
+        // data.context.text('Upload finished.');
+        // console.log(JSON.stringify(data.data));
+        console.log(data);
+    }
+});
 
 
 

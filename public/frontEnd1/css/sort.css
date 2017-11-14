@@ -1,0 +1,11 @@
+.lt-header .mui-title {
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.lt-header .mui-title input {
+  height: 30px;
+  padding: 0 15px;
+  background-color: #fff;
+  color: #000;
+}

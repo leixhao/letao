@@ -63,6 +63,7 @@ $.ajax({
   success:function(data){
     // console.log(data);
     if(data.success == true) {
+      // console.log($('#logout-modal').modal());
       $('#logout-modal').modal('hide');
       setTimeout(function(){
         location.href = './login.html';

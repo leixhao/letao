@@ -18,73 +18,77 @@
 
 <body>
   <!-- 左侧 -->
-  <aside class="lt-aside">
-    <!-- brand -->
-    <div class="brand">
-      <a href="javascript:;">
+  <aside class="lt-laside">
+    <!-- 左侧导航 -->
+    <div class="nav">
+      <a href="./index.html">
         ITCAST
       </a>
     </div>
-    <!-- user -->
-    <div class="user">
-      <img src="./images/default.png" alt="">
-      <span>超级管理员</span>
+    <!-- 管理 -->
+    <div class="manage">
+      <div class="user">
+        <img src="./images/default.png" alt="">
+        <span>超级管理员</span>
+      </div>
+      <div class="menu">
+        <ul>
+          <li>
+            <a href="javascript:;">
+              <i class="glyphicon glyphicon-user"></i>
+              用户管理
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <i class="glyphicon glyphicon-list"></i>
+              分类管理
+            </a>
+            <div class="child">
+              <a href="#">一级分类</a>
+              <a href="#">二级分类</a>
+            </div>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <i class="glyphicon glyphicon-tags"></i>
+              商品管理
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <!-- menu -->
-    <ul class="menu">
-      <li>
-        <a href="javascript:;">
-          <i class="glyphicon glyphicon-user"></i> 用户管理
-        </a>
-      </li>
-      <li>
-        <a href="javascript:;">
-          <i class="glyphicon glyphicon-list"></i> 分类管理
-        </a>
-        <div class="child">
-          <a href="javascript:;">一级分类</a>
-          <a href="javascript:;">二级分类</a>
-        </div>
-      </li>
-      <li>
-        <a href="javascript:;">
-          <i class="glyphicon glyphicon-tags"></i> 商品管理
-        </a>
-      </li>
-    </ul>
   </aside>
   <!-- 右侧 -->
-  <section class="lt-section">
-    <!-- 顶部导航 -->
-    <div class="lt-nav">
-      <a data-menu href="javascript:;">
-        <i class="glyphicon glyphicon-align-justify"></i>
-      </a>
-      <a data-logout href="#logout-modal" data-toggle="modal">
-        <i class="glyphicon glyphicon-log-out" ></i>
-      </a>
+  <aside class="rt-laside">
+    <!-- 顶部 -->
+    <div class="nav">
+      <a data-menu class="glyphicon glyphicon-align-justify" href="javascript:;"></a>
+      <!-- <a class="glyphicon glyphicon-log-out " href="#myModal"  class="btn" data-toggle="modal"></a> -->
+      <a class="glyphicon glyphicon-log-out" data-toggle="modal" href="#myModal"></a>
     </div>
-    
 
-    <div class="lt-content">
-      <div class="container-fluid">
-        <!-- 路径导航 -->
-        <ol class="breadcrumb">
+    </div>
+    <aside class="rt-content">
+      <div class="container">
+        <!-- 导航 -->
+        <ul class="breadcrumb">
           <li>
             <a href="#">管理系统</a>
           </li>
-          <li class="active">首页</li>
-        </ol>
-        <div class="lt-canvas">
+          <li class="active">首页</a>
+          </li>
+        </ul>
+        <div class="rt-draw">
           <div class="picTable"></div>
           <div class="picTable"></div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <div class="modal fade" id="logout-modal" tabindex="-1">
-    <div class="modal-dialog modal-sm">
+    </aside>
+  </aside>
+  <div class="modal fade" id="myModal" tabindex="-1">
+    <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -93,14 +97,12 @@
           <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
         </div>
         <div class="modal-body">
-          <p class="alert alert-danger">
-            <i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？
-          </p>
-
+          <p>
+            <i class="glyphicon glyphicon-info-sign"></i> 您确定要退出后台管理系统吗？</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <a type="button" class="btn btn-primary" href="./login.html">确定</a>
+          <a href="../admin/login.html" class="btn btn-primary">确认</a>
         </div>
       </div>
     </div>
