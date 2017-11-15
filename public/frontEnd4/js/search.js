@@ -32,6 +32,7 @@ $(function(){
   $('#search-btn').on('tap',function(){
     var keyWord  = searchInput.val();
     setHistoryData(keyWord);
+    location.href = './searchList.html?proName='+keyWord;
     showHistoryData();
 
   })
@@ -91,7 +92,7 @@ var removeHistoryData = function(value){
     if(value == item) {
       list.splice(i,1);
     }
-  })
+  });
 
   // 把切掉的后的数组 放回历史记录中
   window.localStorage.setItem('ltHistory',JSON.stringify(list));

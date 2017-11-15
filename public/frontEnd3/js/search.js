@@ -1,20 +1,26 @@
 
 $(function(){
-    getHistoryData();
-
+    showHistoryData();
+    // console.log(1);
     // 2.点击搜索按钮 把关键词加入历史记录
   var searchInput = $('.search-box input');
-  $('#search-btn').on('tap',function(){
+  $('.search-box .btn').on('tap',function(){
+      if(searchInput.val() == ''){
+        return;
+      }
     var keyWord  = searchInput.val();
     setHistoryData(keyWord);
+    // console.log(3);
+    location.href='./searchList.html?proName='+keyWord;
     showHistoryData();
+    // console.log(2);
 
   })
 
   // 3.点击清空历史按钮 清空历史记录 
   $('#clear-history').on('tap',function(){
     // 为什么不用localStorage.clear(); 怕影响其他网站或本网站的功能
-    localStorage.removeItem('ltHistory');
+    localStorage.removeItem('key');
   })
 
   // 4.点击删除按钮  删除一条数据
@@ -24,6 +30,11 @@ $(function(){
     
     removeHistoryData(deleteData);
     showHistoryData();
+  })
+
+  //5.点击搜索历史的某一个可以跳转
+  $('.search-history-list').on('tap','span.mui-pull-left',function(){
+    location.href = './searchList.html?proName='+$(this).val();
   })
 })
 
@@ -47,12 +58,12 @@ var setHistoryData = function(value){
     //将用户查询的
     list.push(value);
 
-    window.localStorage.setItem('ItHistory',JSON.stringify(list));
+    localStorage.setItem('key',JSON.stringify(list));
 
 }
 
 //删除
-var removeHistoryData = function(){
+var removeHistoryData = function(value){
 
     var list = getHistoryData();
     
@@ -63,7 +74,7 @@ var removeHistoryData = function(){
             }
         });
 
-    window.localStorage.setItem('ItHistory',JSON.stringify(list));
+    window.localStorage.setItem('key',JSON.stringify(list));
 }
 
 
@@ -93,4 +104,3 @@ var showHistoryData = function(){
     }
 }
 
-showHistoryData();

@@ -1,8 +1,7 @@
 $(function() {
   var flag = true;
-  var judge = true;
-  // getSearchListData();
 
+//   自动刷新
   mui.init({
     // 注意: 按照文档上书写的DOM结构无特殊要求，只需要指定一个下拉刷新容器标识即可
     // 但是实际上不行,按照实践要求 必须在区域滚动的基础上才可以
@@ -16,95 +15,55 @@ $(function() {
         offset: "0px", //可选 默认0px,下拉刷新控件的起始位置
         auto: true, //可选,默认false.首次加载自动上拉刷新一次
         callback: function() {
-          // console.log(1);
           getSearchListData();
-        } //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+        }
+        // console.log(1);
+
+        //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
       }
     }
   });
 
-  // 1.排序
-  // 1.1 价格
-  $(".order-price").on("tap", function() {
+//   getSearchListData();
+
+  // 1.1按价格排序
+  $(".price-order").on("tap", function() {
     $(".search-result-order a").removeClass("active");
     $(this).addClass("active");
-    // 降序
-
+    //   console.log(1);
     if (flag == true) {
-      // 升序
       getSearchListData(1, 1, 2);
-
       flag = false;
+
       $(this)
         .find("i")
         .addClass("fa-angle-up");
+
       $(this)
         .find("i")
         .removeClass("fa-angle-down");
+      //   console.log(1);
     } else {
-      // 降序
       getSearchListData(1, 2, 2);
       flag = true;
       $(this)
         .find("i")
         .addClass("fa-angle-down");
+
       $(this)
         .find("i")
         .removeClass("fa-angle-up");
-    }
-  });
-  // 1.2 销量
-  // 在业务中 最好去除掉不同排序标准的影响 如果不同的标准可以不传参数 那直接传null
-  // 问题： 在排序业务中 产生了价格和库存的排序的影响
-  // 解决:  如果拿某一个作为标准 那一定要把其他的标准写空
-  //        再采取单一变量的标准去获取数据
-  $(".order-stock").on("tap", function() {
-    $(".search-result-order a").removeClass("active");
-    $(this).addClass("active");
-    // 降序
-
-    if (judge == true) {
-      // console.log(1);
-      // 升序
-      // getSearchListData(页码,价格,num);
-      getSearchListData(1, null, 1);
-
-      judge = false;
-      $(this)
-        .find("i")
-        .addClass("fa-angle-up");
-      $(this)
-        .find("i")
-        .removeClass("fa-angle-down");
-    } else {
-      // console.log(2);
-      // 降序
-      getSearchListData(1, null, 2);
-      judge = true;
-      $(this)
-        .find("i")
-        .addClass("fa-angle-down");
-      $(this)
-        .find("i")
-        .removeClass("fa-angle-up");
+      //   console.log(0);
     }
   });
 });
-// 1.3 点击进入商品详情页
-$(".search-result-list").on("tap", "button", function() {
-  var id = $(this).data("id");
-  location.href = "./detail.html?id=" + id;
-});
 
-// 获取搜索结果
+// 获取页面的搜索结果
 var getSearchListData = function(pageNum, price, num) {
-  // 1.怎么获取到url呢？
-  // console.log(location.href);
-  // 2.怎么获取到url中的参数呢？
-  // 使用url的一个内置对象URLSearchParams
+    console.log(location);
   var url = new URLSearchParams(location.search);
   var proName = url.get("proName");
-  // console.log(proName);
+  console.log(proName);
 
   $.ajax({
     type: "get",
@@ -118,7 +77,7 @@ var getSearchListData = function(pageNum, price, num) {
     },
     success: function(data) {
       console.log(data);
-      var searchList = template("searchListTemplate", data);
+      var searchList = template("search-template", data);
       $(".search-result-list").html(searchList);
     }
   });
