@@ -1,0 +1,46 @@
+/* header */
+.lt-header {
+  background-color:#006699;
+  line-height: 45px;
+}
+
+.lt-header a {
+  display: block;
+  line-height: 45px;
+  color: #fff;
+  padding: 0 10px;
+}
+
+.lt-header .mui-title {
+  color: #fff;
+}
+
+
+
+/* footer */
+.lt-toolbar {
+  background-color: #006699;
+}
+.lt-toolbar span:first-child {
+  display: block;
+}
+
+.lt-toolbar span:last-child {
+  font-size: 11px;
+}
+
+.lt-toolbar .mui-item {
+  display: table-cell;
+  overflow: hidden;
+  width: 1%;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff;
+}
+
+.lt-toolbar .mui-item.mui-active {
+  color: darkorange;
+}
