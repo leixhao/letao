@@ -9,6 +9,7 @@ $(function(){
         return;
       }
     var keyWord  = searchInput.val();
+    console.log(keyWord);
     setHistoryData(keyWord);
     // console.log(3);
     location.href='./searchList.html?proName='+keyWord;
@@ -34,7 +35,8 @@ $(function(){
 
   //5.点击搜索历史的某一个可以跳转
   $('.search-history-list').on('tap','span.mui-pull-left',function(){
-    location.href = './searchList.html?proName='+$(this).val();
+    //   console.log($(this).html());
+    location.href = './searchList.html?proName='+$(this).html();
   })
 })
 

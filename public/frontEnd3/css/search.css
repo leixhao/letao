@@ -90,6 +90,8 @@ html,body {
 
 /* searchList page */
 
+
+
 .search-result .search-result-order {
   width: 100%;
   padding: 0 10px;
@@ -110,11 +112,14 @@ html,body {
 }
 
 
+.search-result .search-result-order a.active{
+  color:red;
+}
+
 
 
 .search-result-list {
   width: 100%;
   padding: 10px;
 }
-
 
