@@ -1,6 +1,7 @@
 $(function(){
   // getSearchListData();
   var flag = true;
+  var judge = true;
 
   mui.init({
     // 注意: 按照文档上书写的DOM结构无特殊要求，只需要指定一个下拉刷新容器标识即可
@@ -41,6 +42,31 @@ $(function(){
 
       flag=true;
     }
+
+    $('.order-stock').on('tap',function(){
+      $('.search-result-order a').removeClass('active');
+      $(this).addClass('active');
+      console.log(3);
+
+      if(judge == true){
+        console.log(1);
+        getSearchListData(null,1,1);
+
+        
+        
+        $('this').find('i').removeClass('fa-angle-down');
+        $('this').find('i').addClass('fa-angle-up');
+        judge = false;
+      }else{
+        console.log(2);
+        getSearchListData(null,2,1);
+
+        $('this').find('i').removeClass('fa-angle-up');
+        $('this').find('i').addClass('fa-angle-down');
+        
+        judge = true;
+      }
+    })
   })
 
 
@@ -56,7 +82,7 @@ var getSearchListData = function(price , num , pageNum){
     url:'/product/queryProduct',
     data:{
       proName: proName || '',
-      price: price || 2,
+      price: price || null,
       num: num|| 2,
       page: pageNum || 1,
       pageSize : 6
