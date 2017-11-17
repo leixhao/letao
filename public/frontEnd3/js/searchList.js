@@ -22,7 +22,8 @@ $(function(){
       }
     }
   });
-
+  // console.log($('#order-stock'));
+  
   $('.order-price').on('tap',function(){
     $('.search-result-order a').removeClass('active');
     $(this).addClass('active');
@@ -43,30 +44,34 @@ $(function(){
       flag=true;
     }
 
-    $('.order-stock').on('tap',function(){
-      $('.search-result-order a').removeClass('active');
-      $(this).addClass('active');
-      console.log(3);
 
-      if(judge == true){
-        console.log(1);
-        getSearchListData(null,1,1);
+   
+  })
 
-        
-        
-        $('this').find('i').removeClass('fa-angle-down');
-        $('this').find('i').addClass('fa-angle-up');
-        judge = false;
-      }else{
-        console.log(2);
-        getSearchListData(null,2,1);
+  $('.order-stock').on('tap',function(){
+    $('.search-result-order a').removeClass('active');
+    $(this).addClass('active');
+    // console.log($(this));
+    // console.log(3);
 
-        $('this').find('i').removeClass('fa-angle-up');
-        $('this').find('i').addClass('fa-angle-down');
-        
-        judge = true;
-      }
-    })
+    if(judge == true){
+      // console.log(1);
+      getSearchListData(null,1,1);
+
+      
+      
+      $('.order-stock').find('i').removeClass('fa-angle-down');
+      $('.order-stock').find('i').addClass('fa-angle-up');
+      judge = false;
+    }else{
+      // console.log(2);
+      getSearchListData(null,2,1);
+
+      $('.order-stock').find('i').removeClass('fa-angle-up');
+      $('.order-stock').find('i').addClass('fa-angle-down');
+      
+      judge = true;
+    }
   })
 
 
@@ -83,7 +88,7 @@ var getSearchListData = function(price , num , pageNum){
     data:{
       proName: proName || '',
       price: price || null,
-      num: num|| 2,
+      num: num|| null,
       page: pageNum || 1,
       pageSize : 6
     },
